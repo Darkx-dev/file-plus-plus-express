@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      svg {
+        font-family: "Roboto", sans-serif;
+        height: 70px;
+        width: 100%;
+      }
+      svg text {
+        animation: stroke 5s infinite alternate;
+        letter-spacing: 5px;
+        font-size: 70px;
+      }
+      @keyframes stroke {
+        0% {
+          fill: rgba(72, 138, 204, 0);
+          stroke: rgb(179, 0, 255);
+          stroke-dashoffset: 25%;
+          stroke-dasharray: 0 50%;
+          stroke-width: 2;
+        }
+        70% {
+          fill: rgba(72, 138, 204, 0);
+          stroke: rgb(248, 70, 245);
+        }
+        80% {
+          fill: rgba(72, 138, 204, 0);
+          stroke: rgb(87, 239, 226);
+          stroke-width: 3;
+        }
+        100% {
+          fill: rgb(245, 247, 248);
+          stroke: rgba(54, 95, 160, 0);
+          stroke-dashoffset: -25%;
+          stroke-dasharray: 50% 0;
+          stroke-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="bg-zinc-800 min-h-screen">
+      <nav>
+        <div class="wrapper">
+          <svg>
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+              File++ 
+            </text>
+          </svg>
+        </div>
+      </nav>
+      <div class="container ">
+        <form action="/" method="post" class="p-5 text-white w-screen flex flex-col">
+          <div class="file__name">
+            <label for="f__name">File Name : </label>
+            <input
+              type="text"
+              id="f__name"
+              name="f__name"
+              class="bg-zinc-900 p-2 rounded-md w-full my-2"
+              required
+            />
+          </div>
+          <div class="file__data">
+            <label for="f__data">Inner Data : </label>
+            <textarea
+              name="f__data"
+              id="f__data"
+              cols="10"
+              rows="5"
+              class="bg-zinc-900 p-2 rounded-md w-full my-2"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-purple-600 uppercase tracking-wider font-semibold py-3 hover:bg-purple-700 transition-color"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div class="container all__files grid grid-cols-2 max-sm:grid-cols-1 gap-5 px-5">
+        <% files.map((file, index) => { %>
+          <div class="file__card grid grid-flow-col bg-[#E600FF10] items-center rounded-md px-5 py-2">
+            <div class="file__name text-white">
+              <h3 class="text-xl"><%=file%></h3>
+              <div class="file__details grid grid-flow-col">
+                <p class="italic text-sm"><%=stats[index].birthtime%></p>
+                <p class="italic text-sm"><%=(stats[index].size/1024).toFixed(5)%> KB</p>
+              </div>
+            </div>
+            <form action="/?_method=DELETE" method="post" class="justify-self-end ">
+              <button class="bg-red-500 text-white px-5 py-2 rounded-md" name="file_name" value="<%=file%>">Delete</button>
+            </form>
+          </div>
+        <% }) %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
