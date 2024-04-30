@@ -2,7 +2,7 @@
 
 File++ Express is a simple Express.js application for managing files in a directory. It provides basic functionality to create, delete, and view files within the specified directory.
 
-[(sample.gif)]
+![Sample](sample.gif)
 
 ## Getting Started
 
