@@ -93,16 +93,20 @@
       </div>
       <div class="container all__files grid grid-cols-2 max-sm:grid-cols-1 gap-5 px-5">
         <% files.map((file, index) => { %>
-          <div class="file__card grid grid-flow-col bg-[#E600FF10] items-center rounded-md px-5 py-2">
+          <div class="file__card grid grid-flow-col bg-[#E600FF10] gap-2 items-center rounded-md px-5 py-2">
             <div class="file__name text-white">
-              <h3 class="text-xl"><%=file%></h3>
+              <h3 class="text-xl text-yellow-100"><%=file%></h3>
               <div class="file__details grid grid-flow-col">
                 <p class="italic text-sm"><%=stats[index].birthtime%></p>
                 <p class="italic text-sm"><%=(stats[index].size/1024).toFixed(5)%> KB</p>
               </div>
             </div>
-            <form action="/?_method=DELETE" method="post" class="justify-self-end ">
-              <button class="bg-red-500 text-white px-5 py-2 rounded-md" name="file_name" value="<%=file%>">Delete</button>
+            
+            <form action="/?_method=DELETE" method="post" class="justify-self-end flex flex-col gap-2">
+              <a href="/edit?file_name=<%=file%>" class="w-full">
+                <button class="bg-purple-500 text-white w-full py-2 rounded-md" type="button">Edit</button>
+              </a>
+              <button class="bg-red-500 text-white px-5 py-2 rounded-md" name="file_name" value="<%=file%>" type="submit">Delete</button>
             </form>
           </div>
         <% }) %>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <main class="bg-zinc-800 min-h-screen">
+      <div class="container">
+        <form
+          action="/edit?_method=PATCH"
+          method="post"
+          class="p-5 text-white w-screen flex flex-col"
+        >
+          <div class="file__name">
+            <label for="f__name">File Name : </label>
+            <input
+              type="text"
+              id="f__name"
+              name="f__name"
+              class="bg-zinc-900 p-2 rounded-md w-full my-2"
+              value="<%=file_name%>"
+              required
+            />
+            <input type="text" hidden name="f__name__prev" value="<%=file_name%>">
+          </div>
+          <div class="file__data">
+            <label for="f__data">Inner Data : </label>
+            <textarea
+              name="f__data"
+              id="f__data"
+              cols="10"
+              rows="5"
+              value="hello"
+              class="bg-zinc-900 p-2 rounded-md w-full my-2"
+            >
+<%=file_content%>
+</textarea
+            >
+          </div>
+          <button
+            type="submit"
+            class="bg-purple-600 uppercase tracking-wider font-semibold py-3 hover:bg-purple-700 transition-color"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
