@@ -2,7 +2,7 @@
 
 File++ Express is a simple Express.js application for managing files in a directory. It provides basic functionality to create, delete, and view files within the specified directory.
 
-![](https://github.com/Darkx-dev/file-plus-plus-express/blob/main/sample.gif?raw=true)
+![](https://raw.githubusercontent.com/Darkx-dev/file-plus-plus-express/main/sample.gif)
 
 ## Getting Started
 
