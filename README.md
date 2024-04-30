@@ -67,6 +67,18 @@ These instructions will get you a copy of the project up and running on your loc
 - Expects the file name in the request body.
 - Redirects back to the home page after deleting the file.
 
+### GET /edit
+
+- Displays the edit page for a specific file.
+- Expects the file name as a query parameter (e.g., /edit?file=example.txt).
+- Renders the "edit" view using EJS template engine.
+
+### PUT /edit
+
+- Updates the content of a file.
+- Expects the file name and new content in the request body.
+- Redirects back to the home page after updating the file.
+
 ## Built With
 
 - Express.js - Web framework for Node.js
