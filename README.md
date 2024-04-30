@@ -73,7 +73,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Expects the file name as a query parameter (e.g., /edit?file=example.txt).
 - Renders the "edit" view using EJS template engine.
 
-### PUT /edit
+### PATCH /edit
 
 - Updates the content of a file.
 - Expects the file name and new content in the request body.
